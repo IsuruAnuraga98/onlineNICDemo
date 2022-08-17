@@ -20,8 +20,8 @@ export class CardSettingsComponent implements OnInit {
     this.dataservice.getData().subscribe(res => {
       var obj = JSON.stringify(res)
       var obgv2 = JSON.parse(obj)
-      
       this.requestarray = Object.values(obgv2);
+      console.log(this.requestarray.length+1);
       this.counter = "R00"+Number(this.requestarray.length+1);
     })
 

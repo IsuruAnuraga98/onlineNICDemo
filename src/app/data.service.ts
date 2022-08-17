@@ -15,12 +15,32 @@ export class DataService {
      return this.httpClient.get('https://nicsystem.test/index');
    }
 
+   getUserData(){
+    return this.httpClient.get('https://nicsystem.test/allusers');
+  }
+
+  updateUserData(id,role){
+    return this.httpClient.get('https://nicsystem.test/updateusers/'+id+'/'+role);
+  }
+
    getDataLevel2(){
     return this.httpClient.get('https://nicsystem.test/stage2index');
   }
 
   getDataLevel3(){
     return this.httpClient.get('https://nicsystem.test/stage3index');
+  }
+
+  getDataLevel4(){
+    return this.httpClient.get('https://nicsystem.test/stage4index');
+  }
+
+  getDataLevel5(){
+    return this.httpClient.get('https://nicsystem.test/stage5index');
+  }
+
+  getDataLevel6(){
+    return this.httpClient.get('https://nicsystem.test/stage6index');
   }
 
   getPoliceReport(data){
@@ -39,7 +59,7 @@ export class DataService {
 
     data.emailsent = data.email;
     data.name = this._AESEncryptDecryptService.encrypt(data.name);
-    data.email = this._AESEncryptDecryptService.encrypt(data.email);
+    data.email = data.email;
     data.firstName = this._AESEncryptDecryptService.encrypt(data.firstName);
     data.lastName = this._AESEncryptDecryptService.encrypt(data.lastName);
     data.address = this._AESEncryptDecryptService.encrypt(data.address);

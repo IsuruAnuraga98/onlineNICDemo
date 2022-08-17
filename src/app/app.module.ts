@@ -58,6 +58,8 @@ import { UpdComponent } from './upd/upd.component';
 import {HttpClientModule} from '@angular/common/http'
 import {FormsModule} from '@angular/forms';
 import { DrtDashboardComponent } from './drt-dashboard/drt-dashboard.component';
+import { UserTableComponent } from './user-table/user-table.component';
+import { UserformComponent } from './userform/userform.component';
 
 
 
@@ -105,6 +107,8 @@ import { DrtDashboardComponent } from './drt-dashboard/drt-dashboard.component';
     UploadpgComponent,
     UpdComponent,
     DrtDashboardComponent,
+    UserTableComponent,
+    UserformComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

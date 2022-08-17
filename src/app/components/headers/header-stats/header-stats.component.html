@@ -4,7 +4,7 @@
     <div>
       <!-- Card stats -->
       <div class="flex flex-wrap">
-        <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+        <div class="w-full lg:w-2/12 xl:w-3/12 px-4" *ngIf="currentState >= 1 " >
           <app-card-stats
             statSubtitle="User"
             statTitle="Completed"
@@ -16,6 +16,102 @@
             statIconColor="bg-emerald-500"
           ></app-card-stats>
         </div>
+
+        <div class="w-full lg:w-2/12 xl:w-3/12 px-4" *ngIf="currentState >= 2">
+          <app-card-stats
+            statSubtitle="Grama Niladhari"
+            statTitle="Completed"
+            statArrow=""
+            statPercent=""
+            statPercentColor=""
+            statDescripiron=""
+            statIconName=""
+            statIconColor="bg-emerald-500"
+          ></app-card-stats>
+        </div>
+
+        <div class="w-full lg:w-2/12 xl:w-3/12 px-4" *ngIf="currentState >= 3">
+          <app-card-stats
+            statSubtitle="Divisional Councils"
+            statTitle="Completed"
+            statArrow=""
+            statPercent=""
+            statPercentColor=""
+            statDescripiron=""
+            statIconName=""
+            statIconColor="bg-emerald-500"
+          ></app-card-stats>
+        </div>
+
+        <div class="w-full lg:w-2/12 xl:w-3/12 px-4" *ngIf="currentState >= 4">
+          <app-card-stats
+            statSubtitle="Police Report"
+            statTitle="Completed"
+            statArrow=""
+            statPercent=""
+            statPercentColor=""
+            statDescripiron=""
+            statIconName=""
+            statIconColor="bg-emerald-500"
+          ></app-card-stats>
+        </div>
+       
+      </div>
+
+      <div class="flex flex-wrap mt-5">
+        
+        <div class="w-full lg:w-2/12 xl:w-3/12 px-4" *ngIf="currentState >= 5">
+          <app-card-stats
+            statSubtitle="Justice Of Peace Report"
+            statTitle="Completed"
+            statArrow=""
+            statPercent=""
+            statPercentColor=""
+            statDescripiron=""
+            statIconName=""
+            statIconColor="bg-emerald-500"
+          ></app-card-stats>
+        </div>
+
+        <div class="w-full lg:w-2/12 xl:w-3/12 px-4" *ngIf="currentState >= 6">
+          <app-card-stats
+            statSubtitle="Photograph"
+            statTitle="Completed"
+            statArrow=""
+            statPercent=""
+            statPercentColor=""
+            statDescripiron=""
+            statIconName=""
+            statIconColor="bg-emerald-500"
+          ></app-card-stats>
+        </div>
+
+        <div class="w-full lg:w-2/12 xl:w-3/12 px-4" *ngIf="currentState >= 7">
+          <app-card-stats
+            statSubtitle="DRP Final"
+            statTitle="Completed"
+            statArrow=""
+            statPercent=""
+            statPercentColor=""
+            statDescripiron=""
+            statIconName=""
+            statIconColor="bg-emerald-500"
+          ></app-card-stats>
+        </div>
+
+        <div class="w-full lg:w-2/12 xl:w-12/12 px-4" *ngIf="currentState == 'Error Detected' ">
+          <app-card-stats
+            statSubtitle="Issue Detected"
+            statTitle="Issue Marked"
+            statArrow=""
+            statPercent=""
+            statPercentColor=""
+            statDescripiron="{{errorText}}"
+            statIconName=""
+            statIconColor="bg-red-600"
+          ></app-card-stats>
+        </div>
+       
       </div>
      
     </div>

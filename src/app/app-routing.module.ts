@@ -29,6 +29,8 @@ import { UploadpgComponent } from "./uploadpg/uploadpg.component";
 import { UpdComponent } from "./upd/upd.component";
 // import { DartDashboard } from "dartdashboard"
 import { DrtDashboardComponent } from "./drt-dashboard/drt-dashboard.component"; 
+import { UserTableComponent } from "./user-table/user-table.component"; 
+import { UserformComponent } from "./userform/userform.component"; 
 
 const routes: Routes = [
   // admin views
@@ -44,6 +46,18 @@ const routes: Routes = [
       
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
+  },
+
+  {
+    path: "usertable",
+    component: UserTableComponent,
+    
+  },
+
+  {
+    path: "userform",
+    component: UserformComponent,
+    
   },
   // auth views
   {

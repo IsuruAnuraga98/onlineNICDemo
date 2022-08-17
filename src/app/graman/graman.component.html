@@ -146,7 +146,7 @@
     <div class="flex flex-wrap items-center">
       <div class="relative w-full px-4 max-w-full flex-grow flex-1">
         <h3 class="font-semibold text-lg" >
-          Card Tables
+          Details
         </h3>
       </div>
     </div>
@@ -155,7 +155,7 @@
     <!-- Projects table -->
     <table class="items-center w-full bg-transparent border-collapse ms-5" style="width: 93%;">
       <thead>
-        <tr >
+        <tr style="background-color: #1c4f91; color: rgb(255, 255, 255);">
 
           <th
             class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
@@ -224,7 +224,7 @@
           </td>
 
           <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4" style="font-size: 15px;">
-            {{ this._AESEncryptDecryptService.decrypt(request.email) }}
+            {{ request.email }}
             <div ng-include="'temp.html'" onload="counter=counter+1"></div>
           </td>
 
@@ -261,7 +261,7 @@
           </td>
 
           <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-            <button (click)="seletedRequest(request)"  class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #3150c0; color: white; font-weight: bold;">View</button>
+            <button (click)="seletedRequest(request)"  class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #1c4f91; color: white; font-weight: bold;">View</button>
           </td>
         </tr>
 

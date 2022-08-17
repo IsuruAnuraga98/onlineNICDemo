@@ -8,4 +8,5 @@ export class Request {
     city:any;
     province:any;
     postalCode:any;
+  RJreason: string;
 }

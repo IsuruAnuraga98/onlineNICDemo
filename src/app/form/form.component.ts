@@ -13,6 +13,8 @@ export class FormComponent implements OnInit {
 
   RECobj:string = localStorage.getItem("selectedRQ")
   obgv2:any = JSON.parse(this.RECobj)
+  RJreason = '';
+
 
   email:string = this.obgv2.email
   RID:string = this.obgv2.RID
@@ -25,6 +27,10 @@ export class FormComponent implements OnInit {
   province:string = this.obgv2.province
   pCode:string = this.obgv2.pCode
 
+  Policeusername:string = ""
+  Peaceusername:string = ""
+  Photousername:string = ""
+
   request = new Request()
 
   userString:any = localStorage.getItem("userRole");
@@ -35,6 +41,12 @@ export class FormComponent implements OnInit {
     console.log(this.obgv2)
     this.request.email = this.email
     this.request.RID = this.RID
+
+    if(this.userString == "level 6 User"){
+      this.viewPoliceImagesName(this.request.RID);
+      this.viewPeaceImagesName(this.request.RID);
+      this.viewPhotoImagesName(this.request.RID);
+    }
   }
 
 
@@ -55,7 +67,7 @@ export class FormComponent implements OnInit {
         }
       })
     }
-    else if(this.userString == "level 4 User"){
+    else if(this.userString == "level 6 User"){
       this.dataservice.updateRequestl3(this.request).subscribe(res => {
         console.log(res);
         if(res == "request has been updated"){
@@ -64,18 +76,65 @@ export class FormComponent implements OnInit {
       })
     }
     
-    
-
   }
 
   updateRequestError(){
+    this.request.RJreason = this.RJreason;
+
+    console.log(this.request);
+
       this.dataservice.updateRequestError(this.request).subscribe(res => {
         console.log(res);
+
         if(res == "request has been updated"){
-          this.router.navigate(['/graman']);
+          if(this.userString == "level 1 User"){
+             this.router.navigate(['/graman']);
+          }else if(this.userString == "level 2 User"){
+             this.router.navigate(['/dartDashboard']);
+          }else if(this.userString == "level 6 User"){
+              this.router.navigate(['/dartDashboard']);
+          }
         }
       })
   }
  
+  viewPoliceImagesName(data){
+
+    this.dataservice.getPoliceReport(data).subscribe(res => {
+      var obj = JSON.stringify(res)
+      var obgv2 = JSON.parse(obj)
+      var name = obgv2.uploadedBy;
+      console.log(name);
+      this.Policeusername = name;
+    })
+
+    return this.Policeusername;
+  }
+
+  viewPeaceImagesName(data){
+    this.dataservice.getPeaceReport(data).subscribe(res => {
+      var obj = JSON.stringify(res)
+      var obgv2 = JSON.parse(obj)
+      var name = obgv2.uploadedBy;
+      console.log(name);
+      this.Peaceusername = name;
+    })
+    return this.Peaceusername;
+  }
+
+  viewPhotoImagesName(data){
+    this.dataservice.getPhoto(data).subscribe(res => {
+      var obj = JSON.stringify(res)
+      var obgv2 = JSON.parse(obj)
+      var name = obgv2.uploadedBy;
+      console.log(name);
+      this.Photousername = name;
+    })
+    return this.Photousername;
+  }
+
+  onSelected(value:string): void {
+		this.RJreason = value;
+	}
 
 }

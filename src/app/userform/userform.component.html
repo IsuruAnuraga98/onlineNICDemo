@@ -1,0 +1,97 @@
+<div
+  class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0 "
+>
+  <div class="rounded-t bg-white mb-0 px-6 py-6 ">
+    <div class="text-center flex justify-between">
+      <h6 class="text-blueGray-700 text-xl font-bold">My account</h6>
+    </div>
+  </div>
+  <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+    <form>
+      <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+        User Information
+      </h6>
+
+       <div class="flex flex-wrap">
+
+        <div class="w-full lg:w-12/12 px-4">
+          <div class="relative w-full mb-3">
+            <label
+              class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+              htmlFor="grid-password"
+            >
+              User ID
+            </label>
+            <input
+              type="text"
+              value="{{ ID }}"
+              readonly
+              class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              placeholder="Home Address"
+            />
+          </div>
+        </div>
+
+        <div class="w-full lg:w-6/12 px-4">
+          <div class="relative w-full mb-3">
+            <label
+              class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+              htmlFor="grid-password"
+            >
+              Username
+            </label>
+            <input
+              type="text"
+              value="{{ username }}"
+              class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+             placeholder="User Name" readonly
+            />
+          </div>
+        </div>
+
+        <div class="w-full lg:w-6/12 px-4">
+          <div class="relative w-full mb-3">
+            <label
+              class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+              htmlFor="grid-password"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              readonly
+              value="{{ email }}"
+              class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              placeholder="Email Address"
+            />
+          </div>
+        </div>
+        <div class="w-full lg:w-12/12 px-4">
+          <div class="relative w-full mb-3">
+            <label
+              class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+              htmlFor="grid-password"
+            >
+              Role
+            </label>
+
+            <select #role (change)="onSelected(role.value)" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                <option default value="user">Defualt User</option>  
+                <option value="level 1 User">level 1 User</option>
+                <option value="level 2 User">level 2 User</option>
+                <option value="level 3 User">Police Station</option>
+                <option value="level 4 User">Justice and peace Officer</option>
+                <option value="level 5 User">Studio</option>
+                <option value="level 6 User">DRP-Admin</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap">
+          <button (click)="updateRequest()"  class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #1c4f91; color: white; font-weight: bold;">Update</button>
+          <button  class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #e22c44; color: white; font-weight: bold;">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

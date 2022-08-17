@@ -62,17 +62,32 @@
       <!-- Navigation -->
 
       <ul class="md:flex-col md:min-w-full flex flex-col list-none">
+        
+          <li class="items-center ms-3">
+            <a [routerLink]="['/dartDashboard']" class="text-xs uppercase py-3 font-bold block" routerLinkActive
+              #adminSettings="" [ngClass]="
+                adminSettings.isActive
+                  ? 'text-red-600 hover:text-red-700'
+                  : 'text-blueGray-700 hover:text-blueGray-500'
+              ">
+              <i class="fas fa-tools mr-2 text-sm" [ngClass]="
+                  adminSettings.isActive ? 'opacity-75' : 'text-blueGray-300'
+                "></i>
+              Dashboard
+            </a>
+          </li>
+
         <li class="items-center ms-3">
-          <a class="text-xs uppercase py-3 font-bold block" routerLinkActive
-            #adminDashboard="routerLinkActive" [ngClass]="
-              adminDashboard.isActive
+          <a [routerLink]="['/usertable']" class="text-xs uppercase py-3 font-bold block" routerLinkActive
+            #adminSettings="" [ngClass]="
+              adminSettings.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             ">
-            <i class="fas fa-tv mr-2 text-sm" [ngClass]="
-                adminDashboard.isActive ? 'opacity-75' : 'text-blueGray-300'
+            <i class="fas fa-table mr-2 text-sm" [ngClass]="
+                adminSettings.isActive ? 'opacity-75' : 'text-blueGray-300'
               "></i>
-            Dashboard
+            User Update
           </a>
         </li>
 <!-- 
@@ -157,10 +172,10 @@
     <!-- Projects table -->
     <table class="items-center w-full bg-transparent border-collapse ms-5" style="width: 93%;">
       <thead>
-        <tr >
+        <tr style="background-color: #1c4f91; color: rgb(255, 255, 255);">
 
           <th
-            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left" 
             >
             RID
           </th>
@@ -213,17 +228,18 @@
          
           <th
             class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-             *ngIf="userString === 'level 4 User' ">
+             *ngIf="userString === 'level 6 User' ">
             View Police Report
           </th>
             
             <th
             class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-             *ngIf="userString === 'level 4 User' ">View Peace Report</th>
+             *ngIf="userString === 'level 6 User' ">View Peace Report</th>
 
+            
             <th
             class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-             *ngIf="userString === 'level 4 User' ">View Photograph</th>
+             *ngIf="userString === 'level 6 User' ">View Photograph</th>
 
             <th
             class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
@@ -231,7 +247,7 @@
 
             <th
             class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-             *ngIf="userString === 'level 4 User' ">Options</th>
+             *ngIf="userString === 'level 6 User' ">Options</th>
         </tr>
       </thead>
       <tbody>
@@ -243,7 +259,7 @@
           </td>
 
           <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4" style="font-size: 15px;">
-            {{ this._AESEncryptDecryptService.decrypt(request.email) }}
+            {{ request.email }}
             <div ng-include="'temp.html'" onload="counter=counter+1"></div>
           </td>
 
@@ -279,25 +295,24 @@
              Level {{ request.status }}
           </td>
 
-          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4" style="font-size: 15px;" *ngIf="userString === 'level 4 User' ">
-            <button (click)="viewPoliceImages( request.RID )"  class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #3150c0; color: white; font-weight: bold;">View</button>
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4" style="font-size: 15px;" *ngIf="userString === 'level 6 User' ">
+            <button (click)="viewPoliceImages( request.RID )"  class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #1c4f91; color: white; font-weight: bold;">View</button>
           </td>
 
-          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4" style="font-size: 15px;" *ngIf="userString === 'level 4 User' ">
-            <button (click)="viewPeaceImages( request.RID )"  class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #3150c0; color: white; font-weight: bold;">View</button>
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4" style="font-size: 15px;" *ngIf="userString === 'level 6 User' ">
+            <button (click)="viewPeaceImages( request.RID )"  class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #1c4f91; color: white; font-weight: bold;">View</button>
           </td>
 
-          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4" style="font-size: 15px;" *ngIf="userString === 'level 4 User' ">
-            <button (click)="viewPhotoImages( request.RID )"  class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #3150c0; color: white; font-weight: bold;">View</button>
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4" style="font-size: 15px;" *ngIf="userString === 'level 6 User' ">
+            <button (click)="viewPhotoImages( request.RID )"  class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #1c4f91; color: white; font-weight: bold;">View</button>
           </td>
 
-        
           <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-            <a href="http://nicsystem.test/uploader/{{this._AESEncryptDecryptService.decrypt(request.email)}}/{{ request.RID }}" class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #3150c0; color: white; font-weight: bold;">Upload</a>
+            <a href="http://nicsystem.test/uploader/{{userName}}/{{ request.RID }}" class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #1c4f91; color: white; font-weight: bold;">Upload</a>
           </td>
 
-          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right" *ngIf="userString === 'level 4 User' ">
-            <button (click)="seletedRequest(request)"  class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #3150c0; color: white; font-weight: bold;">Mark as done</button>
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right" *ngIf="userString === 'level 6 User' ">
+            <button (click)="seletedRequest(request)"  class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #1c4f91; color: white; font-weight: bold;">Mark as done</button>
           </td>
           
         </tr>

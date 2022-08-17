@@ -60,7 +60,7 @@
             <input
               type="email"
               readonly
-              value="{{ this._AESEncryptDecryptService.decrypt(email) }}"
+              value="{{ email }}"
               class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               placeholder="Email Address"
             />
@@ -178,8 +178,90 @@
         </div>
       </div>
 
+
+      <div class="w-full lg:w-12/12 px-4 mt-5">
+        <div class="relative w-full mb-3">
+          <label
+            class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+            htmlFor="grid-password"
+          >
+            Rejection Note
+          </label>
+
+          <textarea #rjError (change)="onSelected(rjError.value)" name="error Report" id="" cols="30" rows="5" 
+          class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"></textarea>
+        </div>
+      </div>
+
+
+      <div *ngIf="userString === 'level 6 User' ">
+        <hr class="mt-6 border-b-1 border-blueGray-300" />
+
+        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+          Report Information
+        </h6>
+
+        <div class="flex flex-wrap">
+          <div class="w-full lg:w-12/12 px-4">
+            <div class="relative w-full mb-3">
+              <label
+                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Police report uploaded by
+              </label>
+              <input
+                type="text"
+                value="{{ Policeusername }}"
+                readonly
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                placeholder="Home Address"
+              />
+            </div>
+          </div>
+
+          <div class="w-full lg:w-12/12 px-4">
+            <div class="relative w-full mb-3">
+              <label
+                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                peace report uploaded by
+              </label>
+              <input
+                type="text"
+                value="{{ Peaceusername }}"
+                readonly
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                placeholder="Home Address"
+              />
+            </div>
+          </div>
+
+          <div class="w-full lg:w-12/12 px-4">
+            <div class="relative w-full mb-3">
+              <label
+                class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                photo uploaded by
+              </label>
+              <input
+                type="text"
+                value="{{ Photousername }}"
+                readonly
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                placeholder="Home Address"
+              />
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+
       <div class="flex flex-wrap">
-          <button (click)="updateRequest()"  class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #3150c0; color: white; font-weight: bold;">Verify</button>
+          <button (click)="updateRequest()"  class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #1c4f91; color: white; font-weight: bold;">Verify</button>
           <button (click)="updateRequestError()"  class="text-xs uppercase py-3 font-bold block btn ms-4 mt-3" style="background-color: #e22c44; color: white; font-weight: bold;">Mark Issue</button>
       </div>
     </form>
